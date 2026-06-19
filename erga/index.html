@@ -370,49 +370,7 @@ var wp_socializer = {"ajax_url":"/wp-admin/admin-ajax.php"};
 function cbCookie(ok){try{localStorage.setItem('cb_cookie',ok?'all':'essential');}catch(e){}document.getElementById('cb-cookie').style.display='none';}
 </script>
 <!-- /CB-WIDGETS -->
-<!-- CB-QUOTEBOT -->
-<style>
-#cbq-btn{position:fixed;right:18px;bottom:78px;z-index:9998;background:#0e3a5f;color:#fff;border:0;padding:12px 16px;border-radius:50px;box-shadow:0 4px 14px rgba(0,0,0,.25);font-family:Arial,sans-serif;font-weight:bold;font-size:14px;cursor:pointer}
-#cbq-btn:hover{background:#15507f}
-#cbq-panel{position:fixed;right:18px;bottom:140px;z-index:9999;width:320px;max-width:92vw;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.3);font-family:Arial,sans-serif;display:none;overflow:hidden}
-#cbq-head{background:#0e3a5f;color:#fff;padding:14px 16px;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
-#cbq-head span{cursor:pointer;font-size:18px}
-#cbq-body{padding:16px;font-size:14px;color:#222!important}
-#cbq-body p{margin:0 0 10px}
-.cbq-opt{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;border:1px solid #cfe0ee;background:#f4f9ff;border-radius:8px;cursor:pointer;font-size:14px;color:#13344f!important;font-weight:400!important;text-transform:none!important;letter-spacing:normal!important;line-height:1.3!important}
-.cbq-opt:hover{background:#e3f0ff!important;color:#0e3a5f!important}
-#cbq-body input{width:100%;padding:9px;border:1px solid #ccc;border-radius:6px;font-size:14px;box-sizing:border-box;margin-bottom:8px;color:#222!important;background:#fff!important;text-transform:none!important}
-#cbq-send{display:block;width:100%;background:#7360F2;color:#fff;border:0;padding:12px;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer}
-#cbq-send:hover{background:#5d4cd6}
-.cbq-back{background:none;border:0;color:#0e3a5f;cursor:pointer;font-size:13px;padding:0;margin-top:6px;text-decoration:underline}
-</style>
-<button id="cbq-btn" onclick="cbqOpen()">Ζητήστε προσφορά</button>
-<div id="cbq-panel" role="dialog" aria-label="Φόρμα προσφοράς">
-  <div id="cbq-head">Γρήγορη προσφορά <span onclick="cbqClose()" aria-label="Κλείσιμο">×</span></div>
-  <div id="cbq-body"></div>
-</div>
-<script>
-(function(){
-var S={service:"",detail:"",name:"",phone:""};
-var SERVICES=["Στρώμα","Καναπές / Σαλόνι","Χαλιά","Αυτοκίνητο","Γενικός καθαρισμός σπιτιού","Πολυκατοικία","Κατάστημα / Επαγγελματικός χώρος","Άλλο"];
-var DETAIL={"Στρώμα":"Πόσα στρώματα και τι μέγεθος;","Καναπές / Σαλόνι":"Πόσες θέσεις και τι ύφασμα;","Χαλιά":"Πόσα χαλιά και τι διαστάσεις;","Αυτοκίνητο":"Τι τύπος οχήματος;","Γενικός καθαρισμός σπιτιού":"Πόσα τετραγωνικά;","Πολυκατοικία":"Πόσοι όροφοι/διαμερίσματα;","Κατάστημα / Επαγγελματικός χώρος":"Πόσα τετραγωνικά και τι χώρος;","Άλλο":"Περιγράψτε τι χρειάζεστε."};
-var b=function(){return document.getElementById("cbq-body");};
-window.cbqOpen=function(){document.getElementById("cbq-panel").style.display="block";document.getElementById("cbq-btn").style.display="none";step1();};
-window.cbqClose=function(){document.getElementById("cbq-panel").style.display="none";document.getElementById("cbq-btn").style.display="block";};
-function step1(){var h='<p>Τι θέλετε να καθαρίσουμε;</p>';SERVICES.forEach(function(s){h+='<button class="cbq-opt" onclick="cbqPick(\''+s.replace(/'/g,"")+'\')">'+s+'</button>';});b().innerHTML=h;}
-window.cbqPick=function(s){S.service=s;step2();};
-function step2(){b().innerHTML='<p><b>'+S.service+'</b></p><p>'+(DETAIL[S.service]||"Δώστε λίγες λεπτομέρειες:")+'</p><input id="cbq-d" placeholder="π.χ. 2 στρώματα διπλά"><button id="cbq-send" onclick="cbqStep3()">Συνέχεια</button><button class="cbq-back" onclick="step1b()">‹ Πίσω</button>';}
-window.step1b=function(){step1();};
-window.cbqStep3=function(){S.detail=(document.getElementById("cbq-d")||{}).value||"";b().innerHTML='<p>Τέλεια! Πείτε μας πού να σας απαντήσουμε:</p><input id="cbq-n" placeholder="Ονοματεπώνυμο"><input id="cbq-p" placeholder="Τηλέφωνο"><button id="cbq-send" onclick="cbqSend()">Αποστολή μέσω Viber</button><button class="cbq-back" onclick="step2b()">‹ Πίσω</button>';};
-window.step2b=function(){step2();};
-window.cbqSend=function(){S.name=(document.getElementById("cbq-n")||{}).value||"";S.phone=(document.getElementById("cbq-p")||{}).value||"";
-var txt="Γεια σας! Θέλω προσφορά.\nΥπηρεσία: "+S.service+"\nΛεπτομέρειες: "+S.detail+"\nΌνομα: "+S.name+"\nΤηλέφωνο: "+S.phone;
-try{navigator.clipboard.writeText(txt);}catch(e){}
-window.location.href="viber://chat?number=%2B306934608905";
-b().innerHTML='<p>Αντιγράψαμε τα στοιχεία σας στο πρόχειρο και ανοίγουμε το <b>Viber</b> — κάντε <b>επικόλληση</b> και πατήστε αποστολή. Αν δεν άνοιξε, καλέστε μας στο 2314 000 115.</p><button id="cbq-send" onclick="cbqClose()">Κλείσιμο</button>';};
-})();
-</script>
-<!-- /CB-QUOTEBOT -->
+
 
 <script id="cb-form-js">document.addEventListener("DOMContentLoaded",function(){var fs=document.querySelectorAll("form.cb-form");for(var i=0;i<fs.length;i++){(function(f){f.addEventListener("submit",function(e){e.preventDefault();var res=f.parentNode.querySelector(".cb-result");var cap=f.querySelector('[name="h-captcha-response"]');if(cap&&!cap.value){if(res){res.innerHTML='<div class="cb-err">Παρακαλώ πατήστε το captcha για να επιβεβαιώσετε ότι δεν είστε ρομπότ.</div>';}return;}var btn=f.querySelector("button[type=submit]");var orig=btn?btn.textContent:"";if(btn){btn.textContent="Αποστολή...";btn.disabled=true;}fetch("https://api.web3forms.com/submit",{method:"POST",body:new FormData(f),headers:{Accept:"application/json"}}).then(function(x){return x.json();}).then(function(j){if(j.success){if(window.dataLayer){window.dataLayer.push({event:"cb_form_submit"});}f.style.display="none";if(res)res.innerHTML='<div class="cb-ok"><strong>Το μήνυμά σας στάλθηκε!</strong><br>Ευχαριστούμε που επικοινωνήσατε με την Clean Blue. Θα σας απαντήσουμε σύντομα.</div>';}else{if(res)res.innerHTML='<div class="cb-err">Κάτι πήγε στραβά. Δοκιμάστε ξανά ή καλέστε μας στο 2314 000 115.</div>';if(btn){btn.textContent=orig;btn.disabled=false;}}}).catch(function(){if(res)res.innerHTML='<div class="cb-err">Πρόβλημα σύνδεσης. Δοκιμάστε ξανά ή καλέστε μας στο 2314 000 115.</div>';if(btn){btn.textContent=orig;btn.disabled=false;}});});})(fs[i]);}});</script>
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
