@@ -1,0 +1,43 @@
+# Clean Blue — Apache config (για τον σημερινό πάροχο / cPanel hosting)
+# Αν ανεβάσεις σε Cloudflare Pages/Netlify, αγνόησέ το — εκεί δουλεύει το αρχείο _redirects.
+
+RewriteEngine On
+
+# --- LiteSpeed: μη κρατάς το HTML σε page cache (στατικό site, αποφυγή stale) ---
+<IfModule LiteSpeed>
+  RewriteRule .* - [E=Cache-Control:no-cache]
+</IfModule>
+
+# --- Force HTTPS + non-www (canonical: https://cleanblue.gr) ---
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://cleanblue.gr%{REQUEST_URI} [L,R=301]
+
+# --- 301 redirects από παλιά / διπλά URLs ---
+Redirect 301 /archiki/ /
+Redirect 301 /feed/ /
+Redirect 301 /comments/feed/ /
+# Ελληνικό διπλό URL (γενικοί -> genikoi)
+RedirectMatch 301 ^/%CE%B3%CE%B5%CE%BD%CE%B9%CE%BA%CE%BF%CE%AF/?$ /genikoi/
+
+# --- Καθαρά URLs: σερβίρισμα index.html για φακέλους (συνήθως ήδη ενεργό) ---
+DirectoryIndex index.html
+
+# --- Cache στατικών αρχείων (ταχύτητα) ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# --- Συμπίεση (gzip) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Custom 404 (προαιρετικό) ---
+# ErrorDocument 404 /404.html
