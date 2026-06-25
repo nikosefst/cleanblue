@@ -36,11 +36,10 @@
 /* ---- BENEFIT CARDS ---- */
 .cb-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .cb-card{background:#f7fbff;border:1px solid #e3eef8;border-radius:14px;padding:24px}
-.cb-card p{text-align:left}
 .cb-card .cb-ic{width:48px;height:48px;border-radius:50%;background:#eaf4e0;color:#5a8a00;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .cb-card .cb-ic svg{width:26px;height:26px}
 .cb-card h3{font-size:18px;color:#13344f;margin:0 0 6px}
-.cb-card p{margin:0;font-size:15px;color:#566;line-height:1.55}
+.cb-card p{margin:0;font-size:15px;color:#566;line-height:1.55;text-align:left}
 
 /* ---- USE CASES ---- */
 .cb-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -79,16 +78,32 @@
 /* ---- REVIEWS ---- */
 .cb-reviews{background:#f7fbff;border:1px solid #d8e6f2;border-radius:14px;padding:28px;text-align:center}
 .cb-reviews .cb-stars{color:#f5a623;font-size:27px;letter-spacing:3px}
-.cb-reviews .cb-rscore{font-size:21px;color:#13344f;font-weight:700;margin:8px 0 2px}
-.cb-reviews .cb-rsub{color:#566;margin:0 0 14px}
+.cb-reviews .cb-rscore{font-size:21px;color:#13344f;font-weight:700;margin:8px 0 2px;text-align:center}
+.cb-reviews .cb-rsub{color:#566;margin:0 0 14px;text-align:center}
 .cb-reviews a{color:#3496d3;font-weight:700;text-decoration:none}
 
 /* ---- FINAL CTA BAND ---- */
 .cb-final{background:linear-gradient(135deg,#3496d3,#1e73be);color:#fff;border-radius:16px;padding:36px 24px;text-align:center;margin:48px 0 30px}
 .cb-final h2{color:#fff;font-size:27px;margin:0 0 8px}
-.cb-final p{margin:0 0 20px;opacity:.95;font-size:17px}
+.cb-final p{margin:0 0 20px;opacity:.95;font-size:17px;text-align:center}
 
 /* ---- FAQ ---- */
 .cb-faq2{max-width:960px;margin:0 auto;padding:0 18px}
 .cb-faq2>h2{font-size:29px;color:#13344f;text-align:center;margin:0 0 22px}
-.
+.cb-faq2 details{border:1px solid #dbe7f2!important;border-radius:12px!important;margin-bottom:12px!important;background:#f7fbff!important;overflow:hidden!important;box-shadow:0 1px 4px rgba(20,52,79,.05)!important}
+.cb-faq2 details[open]{border-color:#3496d3!important;background:#fff!important}
+.cb-faq2 summary{cursor:pointer;padding:16px 20px!important;font-weight:700!important;color:#13344f!important;font-size:16px!important;list-style:none!important;display:flex!important;justify-content:space-between!important;align-items:center!important;gap:12px!important}
+.cb-faq2 summary::-webkit-details-marker{display:none!important}
+.cb-faq2 summary:after{content:"+"!important;color:#84b400!important;font-weight:700!important;font-size:24px!important;line-height:1!important;flex:0 0 auto!important}
+.cb-faq2 details[open] summary:after{content:"\2212"!important;color:#3496d3!important}
+.cb-faq2 .a{padding:0 20px 18px!important;color:#444!important;font-size:15px!important;line-height:1.6!important}
+
+/* ---- RESPONSIVE ---- */
+@media(max-width:920px){.cb-cards,.cb-cases{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){
+  .cb-cards,.cb-cases{grid-template-columns:1fr}
+  .cb-hero h1,.cb-hero h2{font-size:29px}
+  .cb-hero .cb-sub{font-size:18px}
+  .cb-sec>h2,.cb-faq2>h2{font-size:23px}
+  .cb-sec{margin:38px 0}
+}
