@@ -1,0 +1,94 @@
+/* Clean Blue — ενιαίο πρότυπο σελίδων υπηρεσιών
+   Αλλάζεις εδώ μία φορά -> ισχύει σε όλες τις σελίδες υπηρεσιών. */
+
+.cb-svc{font-family:"Open Sans",Arial,Helvetica,sans-serif;color:#2b2b2b;max-width:1080px;margin:0 auto;padding:0 18px;line-height:1.62}
+.cb-svc h1,.cb-svc h2,.cb-svc h3{font-family:"Roboto Condensed",Arial,sans-serif;font-weight:700}
+.cb-svc p{font-size:17px}
+.cb-svc img{max-width:100%;height:auto}
+
+/* ---- HERO ---- */
+.cb-hero{text-align:center;padding:34px 0 2px}
+.cb-kicker{text-transform:uppercase;letter-spacing:2px;color:#84b400;font-weight:700;font-size:13px;margin:0 0 8px}
+.cb-hero h1{font-size:40px;line-height:1.12;color:#3496d3;margin:0 0 12px}
+.cb-hero .cb-sub{font-size:21px;color:#13344f;margin:0 auto 18px;font-weight:600;max-width:760px;text-align:center}
+.cb-trust{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;align-items:center;font-size:15px;color:#13344f}
+.cb-trust a{color:#13344f;text-decoration:none;font-weight:700}
+.cb-trust .cb-stars{color:#f5a623;letter-spacing:2px}
+.cb-trust .cb-dot{color:#c2c2c2}
+
+/* ---- CTA ---- */
+.cb-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:24px 0}
+.cb-btn{display:inline-block;font-weight:700;font-size:17px;padding:14px 28px;border-radius:8px;text-decoration:none;color:#fff;transition:.15s;border:none;cursor:pointer}
+.cb-btn-green{background:#84b400}.cb-btn-green:hover{background:#74a000;color:#fff}
+.cb-btn-blue{background:#1e73be}.cb-btn-blue:hover{background:#185f9c;color:#fff}
+.cb-btn-white{background:#fff;color:#1e73be}.cb-btn-white:hover{background:#eef6ff;color:#1e73be}
+
+/* ---- SECTION ---- */
+.cb-sec{margin:48px 0}
+.cb-sec>h2{font-size:29px;color:#13344f;text-align:center;margin:0 0 8px}
+.cb-sec>.cb-lead{text-align:center;color:#5a6a78;max-width:740px;margin:0 auto 28px;font-size:17px}
+
+/* ---- SPLIT 2 columns ---- */
+.cb-split{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;margin:26px 0}
+.cb-split>.cb-col{flex:1 1 320px;min-width:280px}
+.cb-split .cb-col img{width:100%;border-radius:12px;display:block}
+
+/* ---- BENEFIT CARDS ---- */
+.cb-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cb-card{background:#f7fbff;border:1px solid #e3eef8;border-radius:14px;padding:24px}
+.cb-card p{text-align:left}
+.cb-card .cb-ic{width:48px;height:48px;border-radius:50%;background:#eaf4e0;color:#5a8a00;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.cb-card .cb-ic svg{width:26px;height:26px}
+.cb-card h3{font-size:18px;color:#13344f;margin:0 0 6px}
+.cb-card p{margin:0;font-size:15px;color:#566;line-height:1.55}
+
+/* ---- USE CASES ---- */
+.cb-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cb-case{background:#fff;border-left:4px solid #84b400;padding:14px 16px;box-shadow:0 1px 5px rgba(20,52,79,.07);border-radius:0 10px 10px 0}
+.cb-case b{display:block;color:#13344f;font-size:16px;margin-bottom:3px}
+.cb-case span{font-size:14px;color:#667}
+
+/* ---- METHOD STEPS ---- */
+.cb-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.cb-steps li{position:relative;padding:0 0 22px 56px}
+.cb-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:38px;height:38px;background:#3496d3;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px}
+.cb-steps li:not(:last-child):after{content:"";position:absolute;left:18px;top:38px;bottom:0;width:2px;background:#cfe3f3}
+.cb-steps h3{margin:6px 0 4px;font-size:18px;color:#13344f}
+.cb-steps p{margin:0;font-size:15px;color:#566}
+.cb-machines{background:#13344f;color:#dfeaf4;border-radius:14px;padding:24px 26px;margin-top:8px}
+.cb-machines h3{color:#fff;margin:0 0 12px;font-size:20px}
+.cb-machines ul{margin:0;padding-left:20px}
+.cb-machines li{margin-bottom:8px;font-size:15.5px}
+.cb-machines b{color:#84c0f0}
+
+/* ---- VIDEO ---- */
+.cb-media-frame{border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(20,52,79,.12)}
+.cb-media-frame img{display:block;width:100%}
+.cb-yt{position:relative;width:100%;aspect-ratio:16/9;background:#13344f center/cover no-repeat;cursor:pointer;border-radius:12px;overflow:hidden}
+.cb-yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cb-yt .cb-yt-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;background:#f00;border-radius:13px;transition:.15s}
+.cb-yt .cb-yt-play:before{content:"";position:absolute;top:50%;left:50%;transform:translate(-35%,-50%);border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff}
+.cb-yt:hover .cb-yt-play{background:#c00}
+
+/* ---- AREAS ---- */
+.cb-areas{text-align:center;background:#f7fbff;border:1px solid #e3eef8;border-radius:14px;padding:30px 22px}
+.cb-arealist{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:16px}
+.cb-arealist a{background:#eaf4e0;color:#13344f;text-decoration:none;padding:8px 15px;border-radius:22px;font-size:14px;font-weight:600;transition:.15s}
+.cb-arealist a:hover{background:#84b400;color:#fff}
+
+/* ---- REVIEWS ---- */
+.cb-reviews{background:#f7fbff;border:1px solid #d8e6f2;border-radius:14px;padding:28px;text-align:center}
+.cb-reviews .cb-stars{color:#f5a623;font-size:27px;letter-spacing:3px}
+.cb-reviews .cb-rscore{font-size:21px;color:#13344f;font-weight:700;margin:8px 0 2px}
+.cb-reviews .cb-rsub{color:#566;margin:0 0 14px}
+.cb-reviews a{color:#3496d3;font-weight:700;text-decoration:none}
+
+/* ---- FINAL CTA BAND ---- */
+.cb-final{background:linear-gradient(135deg,#3496d3,#1e73be);color:#fff;border-radius:16px;padding:36px 24px;text-align:center;margin:48px 0 30px}
+.cb-final h2{color:#fff;font-size:27px;margin:0 0 8px}
+.cb-final p{margin:0 0 20px;opacity:.95;font-size:17px}
+
+/* ---- FAQ ---- */
+.cb-faq2{max-width:960px;margin:0 auto}
+.cb-faq2>h2{font-size:29px;color:#13344f;text-align:center;margin:0 0 22px}
+.cb-faq2 details{border:1px solid #d8e6f2;bord
