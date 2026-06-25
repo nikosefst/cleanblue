@@ -9,7 +9,7 @@
 /* ---- HERO ---- */
 .cb-hero{text-align:center;padding:34px 0 2px}
 .cb-kicker{text-transform:uppercase;letter-spacing:2px;color:#84b400;font-weight:700;font-size:13px;margin:0 0 8px}
-.cb-hero h1{font-size:40px;line-height:1.12;color:#3496d3;margin:0 0 12px}
+.cb-hero h1,.cb-hero h2{font-size:40px;line-height:1.12;color:#3496d3;margin:0 0 12px;text-align:center}
 .cb-hero .cb-sub{font-size:21px;color:#13344f;margin:0 auto 18px;font-weight:600;max-width:760px;text-align:center}
 .cb-trust{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;align-items:center;font-size:15px;color:#13344f}
 .cb-trust a{color:#13344f;text-decoration:none;font-weight:700}
@@ -91,4 +91,4 @@
 /* ---- FAQ ---- */
 .cb-faq2{max-width:960px;margin:0 auto}
 .cb-faq2>h2{font-size:29px;color:#13344f;text-align:center;margin:0 0 22px}
-.cb-faq2 details{border:1px solid #d8e6f2;bord
+.cb-faq2 details
